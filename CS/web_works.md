@@ -13,5 +13,5 @@
 - HTTP : Hypertext Transfer Protocol
   - 클라이언트와 서버가 서로 통신할 수 있게 하기 위한 규약
 - 관계도
-  ![관계도](frontend/image.assets/%EC%9B%B9%20%EB%8F%99%EC%9E%91%EB%B0%A9%EC%8B%9D.PNG)
+  ![관계도](image.assets/web_works.PNG)
 - 
