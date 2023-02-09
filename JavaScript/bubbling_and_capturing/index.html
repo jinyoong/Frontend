@@ -7,7 +7,18 @@
 </head>
 <body>
   <root id="root">
-    <div></div>
+    <div onclick="alert('div 태그에 할당한 이벤트 핸들러')">
+      <span><code>span</code>태그를 클릭했는데도 <code>div</code>태그의 이벤트가 동작합니다.</span>
+    </div>
+
+    <div onclick="alert('여기까지는 버블링이 올라오지 않습니다')">
+      <div onclick="event.stopPropagation()">
+        <div onclick="alert('여기까지는 버블링이 올라옵니다')">
+          <button>클릭!</button>
+        </div>
+      </div>
+    </div>
+
   </root>
   <script src="index.js"></script>
 </body>

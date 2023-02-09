@@ -1,18 +1,18 @@
-const div1 = document.createElement('div');
-div1.id = 'div1';
-div1.textContent = 'div1';
+const div = document.createElement('div');
+div.className = 'div';
+div.textContent = 'div';
 
-const div2 = document.createElement('span');
-div2.id = 'div2';
-div2.textContent = 'div2';
+const span = document.createElement('span');
+span.className = 'span';
+span.textContent = 'span';
 
-const div3 = document.createElement('p');
-div3.id = 'div3';
-div3.textContent = 'div3';
+const p = document.createElement('p');
+p.className = 'p';
+p.textContent = 'p';
 
-div1.addEventListener('click', clickEvent)
-div2.addEventListener('click', (e) => clickEvent(e))
-div3.addEventListener('click', (e) => clickEvent(e))
+div.addEventListener('click', clickEvent)
+span.addEventListener('click', clickEvent)
+p.addEventListener('click', clickEvent)
 
 function clickEvent(event) {
   event.target.style.backgroundColor = 'blue';
@@ -26,7 +26,39 @@ function clickEvent(event) {
   }, 0);
 }
 
+const bubblingText = document.createElement('h3');
+bubblingText.textContent = '아래는 버블링 예제입니다.';
+
+const capturingText = document.createElement('h3');
+capturingText.textContent = '아래는 캡처링 예제입니다.';
+
+const capturingDiv = document.createElement('div');
+capturingDiv.className = 'div';
+capturingDiv.textContent = 'div';
+
+const capturingSpan = document.createElement('span');
+capturingSpan.className = 'span';
+capturingSpan.textContent = 'span';
+
+const capturingP = document.createElement('p');
+capturingP.className = 'p';
+capturingP.textContent = 'p';
+
+for (let element of [capturingDiv, capturingSpan, capturingP]) {
+  element.addEventListener('click', (event) => alert(`캡처링 : ${element.tagName}`), true);
+  element.addEventListener('click', (event) => alert(`버블링 : ${element.tagName}`));
+}
+
 const root = document.getElementById('root');
-div2.appendChild(div3);
-div1.appendChild(div2);
-root.appendChild(div1);
+
+root.appendChild(bubblingText);
+
+span.appendChild(p);
+div.appendChild(span);
+root.appendChild(div);
+
+root.appendChild(capturingText);
+
+capturingSpan.appendChild(capturingP);
+capturingDiv.appendChild(capturingSpan);
+root.appendChild(capturingDiv);
