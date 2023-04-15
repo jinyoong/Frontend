@@ -45,8 +45,8 @@ capturingP.className = 'p';
 capturingP.textContent = 'p';
 
 for (let element of [capturingDiv, capturingSpan, capturingP]) {
-  element.addEventListener('click', (event) => alert(`캡처링 : ${element.tagName}`), true);
   element.addEventListener('click', (event) => alert(`버블링 : ${element.tagName}`));
+  element.addEventListener('click', (event) => alert(`캡처링 : ${element.tagName}`), true);
 }
 
 const root = document.getElementById('root');

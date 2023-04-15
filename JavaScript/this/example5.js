@@ -30,3 +30,18 @@ class Three {
 };
 
 const threeInstance = new Three();
+
+// 4. 클로저 함수
+const Four = {
+  fourMethod() {
+    const that = this;
+    function inner() {
+      console.log(this);
+      console.log(that);
+    };
+
+    inner();
+  }
+};
+
+Four.fourMethod();
