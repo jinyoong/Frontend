@@ -1,0 +1,17 @@
+ul {
+  display: flex;
+  column-gap: 10px;
+}
+
+li {
+  list-style: none;
+}
+
+li:last-child::after {
+  content: "";
+}
+
+li::after {
+  content: "|";
+  margin-left: 10px;
+};
