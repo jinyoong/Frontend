@@ -82,3 +82,18 @@ function pickOnlyOne() {
 };
 
 pickOnlyOne().then(console.log);
+
+// Promise.any
+// 누가 먼저 동작이 이행(fulfilled)되는지가 궁금할 경우
+const promise1 = Promise.reject("first");
+const promise2 = new Promise((resolve) => setTimeout(() =>{
+  resolve("second")
+}, 100));
+const promise3 = new Promise((resolve) => setTimeout(() =>{
+  resolve("third")
+}, 200));
+
+const promises = [promise1, promise2, promise3];
+Promise.any(promises).then(console.log);
+
+// 위 예시를 보면 가장 먼저 동작이 완료되는 것은 promise1 이지만, 성공한 것 중에 가장 빠른 promise2 를 보여주는 것을 확인할 수 있다.
